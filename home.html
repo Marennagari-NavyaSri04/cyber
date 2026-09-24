@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Home - CPS Security for Industry 4.0{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-primary mb-3">
+                <i class="fas fa-industry"></i>
+                Cyber-Physical System Security
+            </h1>
+            <p class="lead text-muted">
+                Manufacturing Industry 4.0 Protection Using LSTM-CNN Parallel Orchestration
+            </p>
+        </div>
+
+        <!-- Project Overview -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-info-circle"></i>
+                    System Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    This framework implements an intelligent cyber-physical system (CPS) security solution
+                    for smart manufacturing environments in Industry 4.0. A parallel LSTM-CNN orchestration
+                    model is employed to detect anomalous and malicious behaviors in industrial sensor,
+                    controller, and network communication data.
+                </p>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-primary">Security Detection Targets:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> <strong>Denial-of-Service Intensity:</strong> Low, Medium, High, Critical</li>
+                            <li><i class="fas fa-check text-success"></i> <strong>Spoofing / Impersonation Attacks:</strong> None, Low, Medium, High</li>
+                            <li><i class="fas fa-check text-success"></i> <strong>False Data Injection:</strong> Normal, Suspicious, Malicious</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-primary">Learning Architecture:</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-cogs text-info"></i> Parallel LSTM Temporal Modeling</li>
+                            <li><i class="fas fa-cogs text-info"></i> CNN-Based Spatial Feature Learning</li>
+                            <li><i class="fas fa-cogs text-info"></i> Feature-Level Orchestration Layer</li>
+                            <li><i class="fas fa-cogs text-info"></i> Multi-Class CPS Attack Classification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dataset Upload Section -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-success text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-upload"></i>
+                    CPS Dataset Upload
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-muted">
+                    Upload manufacturing CPS sensor, actuator, or network traffic data to initiate
+                    security analysis and model evaluation. The dataset must be provided in CSV format.
+                </p>
+                
+                <form action="{{ url_for('upload_dataset') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label fw-bold">Select CPS Dataset File:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".csv" required>
+                        <div class="form-text">
+                            <i class="fas fa-info-circle text-info"></i>
+                            Supported format: CSV files only
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Upload CPS Dataset
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">CPS Data Analysis</h5>
+                        <p class="card-text">
+                            Visual and statistical exploration of industrial CPS operational and network data.
+                        </p>
+                        <a href="{{ url_for('eda') }}" class="btn btn-outline-primary">Analyze CPS Data</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-pie fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Model Performance Evaluation</h5>
+                        <p class="card-text">
+                            Assess accuracy, precision, recall, F1-score, and detection reliability.
+                        </p>
+                        <a href="{{ url_for('performance') }}" class="btn btn-outline-warning">View Results</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3 mx-auto">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-robot fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">LSTM-CNN Security Prediction</h5>
+                        <p class="card-text">
+                            Perform real-time CPS attack detection using the trained orchestration model.
+                        </p>
+                        <a href="{{ url_for('predict_single') }}" class="btn btn-outline-info">
+                            Run Prediction
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting Started -->
+        <div class="card shadow-sm mt-4">
+            <div class="card-header bg-dark text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-rocket"></i>
+                    Workflow Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 50px; height: 50px;">1</div>
+                        <h6>Upload CPS Data</h6>
+                        <p class="text-muted small">
+                            Provide Industry 4.0 sensor and communication datasets
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 50px; height: 50px;">2</div>
+                        <h6>Analyze & Learn</h6>
+                        <p class="text-muted small">
+                            Extract patterns using LSTM-CNN parallel learning
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-center mb-3">
+                        <div class="step-number bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width: 50px; height: 50px;">3</div>
+                        <h6>Detect Attacks</h6>
+                        <p class="text-muted small">
+                            Identify cyber threats in real-time CPS environments
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+numpy==1.26.4
+pandas
+matplotlib
+seaborn
+flask
+scikit-learn==1.6.1
+imblearn
+joblib==1.4.2
+tensorflow
+keras
+
+# python version 3.12.0
